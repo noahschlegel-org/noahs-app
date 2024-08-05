@@ -156,6 +156,7 @@ jobs:
         run: |
           export IMAGE_CONTAINER="docker.io/$DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG"
           export CONTAINER_NAME="$CONTAINER_NAME"
+          export DAPARTMENT="$DEPARTMENT"
           sed -e "s#{{ IMAGE_CONTAINER }}#$IMAGE_CONTAINER#g" "./manifests/dev/deployment.yaml" && sed -e "s#{{ CONTAINER_NAME }}#$CONTAINER_NAME#g" "./manifests/dev/deployment.yaml" | 
           kubectl apply -f -
           kubectl apply -f ./manifests/dev/service.yaml
