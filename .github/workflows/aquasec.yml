@@ -159,5 +159,6 @@ jobs:
           export DEPARTMENT="$DEPARTMENT"
           sed -e "s#{{ IMAGE_CONTAINER }}#$IMAGE_CONTAINER#g" -e "s#{{ CONTAINER_NAME }}#$CONTAINER_NAME#g" -e "s#{{ DEPARTMENT }}#$DEPARTMENT#g" "./manifests/dev/deployment.yaml" | 
           kubectl apply -f -
-          kubectl apply -f ./manifests/dev/service.yaml
+          sed -e "s#{{ CONTAINER_NAME }}#$CONTAINER_NAME#g" -e "s#{{ DEPARTMENT }}#$DEPARTMENT#g" "./manifests/dev/service.yaml" | 
+          kubectl apply -f -
             
