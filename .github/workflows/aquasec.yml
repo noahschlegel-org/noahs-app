@@ -149,7 +149,7 @@ jobs:
         uses: azure/k8s-set-context@v3
         with:
            method: kubeconfig
-           kubeconfig: ${{ secrets.KUBECONFIG23 }}
+           kubeconfig: ${{ secrets.KUBECONFIG }}
            context: emea-aguisado-test
            
       - name: Deploying
